@@ -54,7 +54,7 @@ const PLANS = [
     title:  "The Toddler Mud Kitchen",
     blurb:  "A cheap, sturdy, smooth-sanded outdoor mud kitchen...",  // 1-2 sentences
     accent: "#a16207",                     // card bar color; match the plan page's --accent
-    specs:  ["36 × 16 × 16\"", "~$40-$80", "Beginner", "A weekend"]   // 3-4 short chips
+    specs:  ["36 × 16-16½ × 16\"", "~$40-$80", "Beginner", "A weekend"]   // 3-4 short chips
   },
   // add your new plan object here
 ];
