@@ -1,9 +1,9 @@
 # Woodworking Plans — how to add one
 
-This folder is a tiny, zero-build static section of [christhoma.me](https://www.christhoma.me). Each plan is a self-contained HTML page in its own folder; a data-driven hub page lists them all. No framework, no build step, no dependencies — just static files served by GitHub Pages.
+This repo is a tiny, zero-build static site that GitHub Pages serves at [christhoma.me/plans](https://www.christhoma.me/plans). Each plan is a self-contained HTML page in its own folder; a data-driven hub page lists them all. No framework, no build step, no dependencies — just static files.
 
 ```
-plans/
+.
 ├── index.html          # the hub — lists every plan from a small array (edit this to register a plan)
 ├── README.md           # you are here
 └── <slug>/
@@ -21,14 +21,14 @@ The hub and each plan are independent: adding a plan never requires touching ano
 Make a new folder named with a URL-friendly **slug** (lowercase, hyphens) and put an `index.html` inside it:
 
 ```
-plans/<slug>/index.html
+<slug>/index.html
 ```
 
 The fastest start is to **copy an existing plan and edit it**:
 
 ```bash
-cp -R plans/mud-kitchen plans/<slug>
-# then edit plans/<slug>/index.html
+cp -R mud-kitchen <slug>
+# then edit <slug>/index.html
 ```
 
 `mud-kitchen/index.html` is the reference template. Keep these conventions so plans feel consistent:
@@ -44,7 +44,7 @@ cp -R plans/mud-kitchen plans/<slug>
 
 ### 2. Register it in the hub
 
-Open `plans/index.html` and add one object to the `PLANS` array near the bottom:
+Open `index.html` and add one object to the `PLANS` array near the bottom:
 
 ```js
 const PLANS = [
@@ -85,7 +85,7 @@ Blueprints are **hand-drawn inline `<svg>`**, not images — they stay razor-sha
   - `.dimL` / `.ext` / `.dimt` — dimension lines, extension lines, and dimension text
 - Wrap each figure in `<figure class="card">` with a `<figcaption>` explaining what it shows.
 
-If a plan needs photos instead, drop them in the plan's own folder (e.g. `plans/<slug>/img/`) and reference them with relative paths.
+If a plan needs photos instead, drop them in the plan's own folder (e.g. `<slug>/img/`) and reference them with relative paths.
 
 ---
 
@@ -94,10 +94,10 @@ If a plan needs photos instead, drop them in the plan's own folder (e.g. `plans/
 The pages work straight from `file://`, but serving over HTTP exercises the real relative links:
 
 ```bash
-cd /path/to/ChrisThoma.github.io
+cd /path/to/plans
 python3 -m http.server 8000
-# open http://localhost:8000/plans/        (the hub)
-# open http://localhost:8000/plans/<slug>/ (your plan)
+# open http://localhost:8000/        (the hub)
+# open http://localhost:8000/<slug>/ (your plan)
 ```
 
 Check that: the hub shows your new card, the card links to the plan, the plan's blueprints render, and the footer links work.
@@ -106,10 +106,10 @@ Check that: the hub shows your new card, the card links to the plan, the plan's 
 
 ## Publish
 
-The site deploys from the `master` branch via GitHub Pages — pushing is publishing.
+The site deploys from the `main` branch via GitHub Pages — pushing is publishing.
 
 ```bash
-git add plans/<slug> plans/index.html
+git add <slug> index.html
 git commit -m "Add <plan name> woodworking plan"
 git push
 ```
@@ -119,4 +119,4 @@ Live within ~1 minute at:
 - Hub: **https://www.christhoma.me/plans**
 - Plan: **https://www.christhoma.me/plans/<slug>**
 
-> The homepage (`/index.html`) already links to `/plans`, so a new plan needs no homepage change — only the hub array.
+> The main site already links to `/plans`, so a new plan needs no change there — only the hub array in this repo.
