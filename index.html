@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Woodworking Plans — christhoma</title>
-<meta name="description" content="Free, beginner-friendly woodworking plans — full materials lists, scaled blueprints, and step-by-step instructions.">
+<title>Woodworking Plans | christhoma</title>
+<meta name="description" content="Free, beginner-friendly woodworking plans with full materials lists, scaled blueprints, and step-by-step instructions.">
 <style>
   :root{
     --ink:#241c12; --muted:#6b5d49; --accent:#a16207; --accent2:#7c4a14;
@@ -52,7 +52,7 @@
   <div class="wrap">
     <p class="eyebrow">christhoma.me</p>
     <h1>Woodworking Plans</h1>
-    <p>Free, beginner-friendly build plans — each with a full materials list, scaled blueprints, and step-by-step instructions you can hand to someone with a drill and a weekend.</p>
+    <p>Free, beginner-friendly build plans with full materials lists, scaled blueprints, and step-by-step instructions you can hand to someone with a drill and a weekend.</p>
   </div>
 </header>
 
@@ -64,8 +64,7 @@
 
 <footer>
   <div class="wrap">
-    <span>Plans built &amp; tested at home. 🪵</span>
-    <span><a href="/">← christhoma.me</a></span>
+    <span><a href="/">christhoma.me</a></span>
   </div>
 </footer>
 
@@ -77,27 +76,27 @@
   const PLANS = [
     {
       slug: "mud-kitchen",
-      icon: "🍲",
+      icon: "",
       title: "The Toddler Mud Kitchen",
-      blurb: "A cheap, sturdy, splinter-free outdoor mud kitchen scaled low for a 2- and 4-year-old — drop-in basin, storage shelf, and a hook backboard.",
+      blurb: "A cheap, sturdy, smooth-sanded outdoor mud kitchen scaled low for a 2- and 4-year-old, with a drop-in basin, storage shelf, and hook backboard.",
       accent: "#a16207",
-      specs: ["36 × 16 × 16″", "~$40–$80", "Beginner", "A weekend"]
+      specs: ["36 × 16 × 16\"", "~$40-$80", "Beginner", "A weekend"]
     }
   ];
 
   const grid = document.getElementById("grid");
   if (!PLANS.length) {
-    grid.innerHTML = '<div class="empty">No plans yet — check back soon.</div>';
+    grid.innerHTML = '<div class="empty">No plans yet. Check back soon.</div>';
   } else {
     grid.innerHTML = PLANS.map(p => `
       <a class="plan" href="${p.slug}/">
         <div class="bar" style="background:${p.accent}"></div>
         <div class="body">
-          <div class="icon">${p.icon}</div>
+          ${p.icon ? `<div class="icon">${p.icon}</div>` : ""}
           <h2>${p.title}</h2>
           <p>${p.blurb}</p>
           <div class="specs">${p.specs.map(s => `<span class="spec">${s}</span>`).join("")}</div>
-          <span class="more" style="color:${p.accent}">View the plan →</span>
+          <span class="more" style="color:${p.accent}">View the plan</span>
         </div>
       </a>`).join("");
   }
